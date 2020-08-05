@@ -1,19 +1,19 @@
 import React from 'react';
 
 const photos = [
-  'https://images.unsplash.com/photo-1596650858614-22233431ae80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-  'https://images.unsplash.com/photo-1596646699948-d8e034bfcd21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  'https://images.unsplash.com/photo-1596650858614-22233431ae80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-  'https://images.unsplash.com/photo-1596650858614-22233431ae80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-  'https://images.unsplash.com/photo-1596646699948-d8e034bfcd21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  'https://images.unsplash.com/photo-1596650858614-22233431ae80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
-  'https://images.unsplash.com/photo-1596646699948-d8e034bfcd21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-  'https://images.unsplash.com/photo-1596646699948-d8e034bfcd21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+  {
+    id: 1,
+    url: 'https://images.unsplash.com/photo-1596650858614-22233431ae80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+  },
+  {
+    id: 1,
+    url: 'https://images.unsplash.com/photo-1596646699948-d8e034bfcd21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
+  }
 ];
 
-const photoItem = photos.map((photo) =>
-  <div className="col-md-3">
-    <img src={photo} alt="photo" className="photo" />
+const photoItem = photos.map((photo, index) =>
+  <div key={index} className="col-md-3">
+    <img src={photo.url} alt={photo.id} className="photo" />
   </div>
 );
 
