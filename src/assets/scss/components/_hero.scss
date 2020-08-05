@@ -1,3 +1,45 @@
 .hero{
-  background-color: $gray-200;
+  background-color: #000;
+  position: relative;
+  height: 600px;
+
+  .content{
+    position: absolute;
+    top: 0;
+    height: 600px;
+    width: 100%;
+    &.bg{
+      background-image: url(../../statics/hero-1.jpg);
+      background-size: cover;
+      background-position: center center;
+      color: white;
+      opacity: 0.6;
+    }  
+    &.caption{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .logo{
+        height: 300px;
+      }  
+    }
+  }  
+
+}
+
+@media (max-width: 767px) {
+  .hero{
+    height: 500px;
+  
+    .content{
+      height: 500px;
+      &.caption{
+        .logo{
+          height: 200px;
+        }  
+      }
+    }  
+  
+  }
+  
 }

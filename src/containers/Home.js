@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import Logo from '../components/Logo';
+
+import Hero from '../components/Hero';
+import Benefits from '../components/Benefits';
+import Categories from '../components/Categories';
+import Cta from '../components/Cta';
+import Histories from '../components/Histories';
+import Contact from '../components/Contact';
 
 class Home extends Component {
   render () {
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-8 col md-3">
-            <Logo />
-          </div>
-        </div>
+      <div>
+        <Hero />
+        <Benefits />
+        <Categories />
+        <Cta />
+        <Histories />
+        <Contact />
       </div>
     )
   }

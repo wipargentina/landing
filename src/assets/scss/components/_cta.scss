@@ -1,0 +1,17 @@
+.cta{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: $secondary;
+  color: white;
+  text-align: center;
+
+  h3{
+    font-size: 1.4em;
+    margin-bottom: 24px;
+  }
+  .btn{
+    text-transform: uppercase;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
