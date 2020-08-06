@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 class Contact extends Component {
   constructor(props) {
@@ -9,107 +11,137 @@ class Contact extends Component {
       email: '',
       phone: '',
       state: '',
-      city: ''
+      city: '',
+      isSending: false,
+      send: false
     }
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
-    alert('A name was send');
-    event.preventDefault();
+  handleChange(e) {
+    this.setState({[e.target.name]: e.target.value})
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    //console.log(this.state);
+    this.setState({ isSending: true })
+    
+    axios.post('https://simonassi.wipargentina.com/backend/test.php', this.state)
+      .then(response => {
+        //console.log(response);
+        if(response.status === 200) {
+          this.setState({ isSending: false, send: true })
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+  
+
   render () {
+
+    if(this.state.send) {
+      return <Redirect to="/gracias" />
+    }
+
+    const isSending = this.state.isSending;
+
     return (
       <div className="contact">
         <div className="container">
           <h3>Completá el formulario y un asesor se pondrá en contacto</h3>
           <div className="row justify-content-center">
-            <div className="col-md-8">
+          <div className="col-md-8">
+              <p>{this.state.message}</p>
               <form onSubmit={this.handleSubmit}>
-                <div className="row mb-5">
+                <div className="row mb-4">
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Nombre</label>
-                      <input type="text" name="fname" className="form-control"/>
+                      <input type="text" name="fname" className="form-control" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Apellido</label>
-                      <input type="text" name="lname" className="form-control"/>
+                      <input type="text" name="lname" className="form-control" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Email</label>
-                      <input type="text" name="email" className="form-control"/>
+                      <input type="text" name="email" className="form-control" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Teléfono</label>
-                      <input type="text" name="phone" className="form-control"/>
+                      <input type="text" name="phone" className="form-control" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Provincia</label>
-                      <input type="text" name="state" className="form-control"/>
+                      <input type="text" name="state" className="form-control" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Localidad</label>
-                      <input type="text" name="city" className="form-control"/>
+                      <input type="text" name="city" className="form-control" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6 mb-2">
                     <label>¿Cuál es tu tema de interés?</label>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck1" />
-                      <label className="custom-control-label">Tractores</label>
+                      <input type="checkbox" className="custom-control-input" id="dataCheck1" name="tractores" onChange={this.handleChange}/>
+                      <label className="custom-control-label" htmlFor="dataCheck1">Tractores</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck2" />
-                      <label className="custom-control-label">Pulverizadores</label>
+                      <input type="checkbox" className="custom-control-input" id="dataCheck2" name="pulverizadores" onChange={this.handleChange}/>
+                      <label className="custom-control-label" htmlFor="dataCheck2">Pulverizadores</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck3" />
-                      <label className="custom-control-label">Cosechadoras</label>
+                      <input type="checkbox" className="custom-control-input" id="dataCheck3" name="cosechadoras" onChange={this.handleChange}/>
+                      <label className="custom-control-label" htmlFor="dataCheck3">Cosechadoras</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck4" />
-                      <label className="custom-control-label">Servicio Técnico</label>
+                      <input type="checkbox" className="custom-control-input" id="dataCheck4" name="servicio-tecnico" onChange={this.handleChange}/>
+                      <label className="custom-control-label" htmlFor="dataCheck4">Servicio Técnico</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck5" />
-                      <label className="custom-control-label">Lubricantes y Adhitivos</label>
+                      <input type="checkbox" className="custom-control-input" id="dataCheck5" name="lubricante-adhitivos" onChange={this.handleChange}/>
+                      <label className="custom-control-label" htmlFor="dataCheck5">Lubricantes y Adhitivos</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck6" />
-                      <label className="custom-control-label">Agricultra de Precisión</label>
+                      <input type="checkbox" className="custom-control-input" id="dataCheck6" name="agricultura-precision" onChange={this.handleChange}/>
+                      <label className="custom-control-label" htmlFor="dataCheck6">Agricultra de Precisión</label>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <label>¿Que tipo de productor eres?</label>
                     <div className="custom-control custom-radio">
-                      <input type="radio" id="customRadio1" name="customRadio" className="custom-control-input" />
-                      <label className="custom-control-label">Producto</label>
+                      <input type="radio" id="customRadio1" name="tipo" value="productor" className="custom-control-input" onChange={this.handleChange} />
+                      <label className="custom-control-label" htmlFor="customRadio1">Productor</label>
                     </div>
                     <div className="custom-control custom-radio">
-                      <input type="radio" id="customRadio2" name="customRadio" className="custom-control-input" />
-                      <label className="custom-control-label">Contratista</label>
+                      <input type="radio" id="customRadio2" name="tipo" value="contratista" className="custom-control-input" onChange={this.handleChange} />
+                      <label className="custom-control-label" htmlFor="customRadio2">Contratista</label>
                     </div>
                     <div className="custom-control custom-radio">
-                      <input type="radio" id="customRadio3" name="customRadio" className="custom-control-input" />
-                      <label className="custom-control-label">Otro</label>
+                      <input type="radio" id="customRadio3" name="tipo" value="otro" className="custom-control-input" onChange={this.handleChange} />
+                      <label className="custom-control-label" htmlFor="customRadio3">Otro</label>
                     </div>
                   </div>
                 </div>
                 <div className="">
                   <input type="submit" value="ENVIAR" className="btn btn-light" />
+                  { isSending ? <span className="ml-2">enviando...</span> : '' }
                 </div>
               </form>
             </div>
