@@ -52,7 +52,7 @@ class Contact extends Component {
     const isSending = this.state.isSending;
 
     return (
-      <div className="contact">
+      <div className="contact" id="contact">
         <div className="container">
           <h3>Completá el formulario y un asesor se pondrá en contacto</h3>
           <div className="row justify-content-center">
