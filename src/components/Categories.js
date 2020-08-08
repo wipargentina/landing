@@ -1,8 +1,9 @@
 import React from 'react';
 
-import imgCategory1 from '../assets/statics/categoria1.svg';
+import imgCosechadora from '../assets/statics/icon-cosechadora.svg';
 import iconTractor from '../assets/statics/icon-tractor.svg';
 import iconPulverizadores from '../assets/statics/icon-pulverizadores.svg';
+import iconTechnical from '../assets/statics/icon-technical.svg';
 import iconPrecision from '../assets/statics/icon-precision.svg';
 import iconLubricantes from '../assets/statics/icon-lubricantes.svg';
 
@@ -35,7 +36,7 @@ const Categories =  (props) => (
         <div className="col-8 col-md-3">
           <div className="card">
             <div className="card-img">
-              <img src={imgCategory1} alt=""/>
+              <img src={imgCosechadora} alt=""/>
             </div>
             <div className="card-body">
               <h3 className="card-title">Cosechadoras</h3>
@@ -45,7 +46,7 @@ const Categories =  (props) => (
         <div className="col-8 col-md-3">
         <div className="card">
           <div className="card-img">
-            <img src={imgCategory1} alt=""/>
+            <img src={iconTechnical} alt=""/>
           </div>
           <div className="card-body">
             <h3 className="card-title">Servicio Técnico</h3>

@@ -63,37 +63,37 @@ class Contact extends Component {
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Nombre</label>
-                      <input type="text" name="fname" className="form-control" onChange={this.handleChange}/>
+                      <input type="text" name="fname" className="form-control form-control-lg" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Apellido</label>
-                      <input type="text" name="lname" className="form-control" onChange={this.handleChange}/>
+                      <input type="text" name="lname" className="form-control form-control-lg" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Email</label>
-                      <input type="text" name="email" className="form-control" onChange={this.handleChange}/>
+                      <input type="text" name="email" className="form-control form-control-lg" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Teléfono</label>
-                      <input type="text" name="phone" className="form-control" onChange={this.handleChange}/>
+                      <input type="text" name="phone" className="form-control form-control-lg" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Provincia</label>
-                      <input type="text" name="state" className="form-control" onChange={this.handleChange}/>
+                      <input type="text" name="state" className="form-control form-control-lg" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Localidad</label>
-                      <input type="text" name="city" className="form-control" onChange={this.handleChange}/>
+                      <input type="text" name="city" className="form-control form-control-lg" onChange={this.handleChange}/>
                     </div>
                   </div>
                   <div className="col-md-6 mb-2">
@@ -140,7 +140,7 @@ class Contact extends Component {
                   </div>
                 </div>
                 <div className="">
-                  <input type="submit" value="ENVIAR" className="btn btn-light" />
+                  <input type="submit" value="ENVIAR" className="btn btn-lg btn-primary text-white" />
                   { isSending ? <span className="ml-2">enviando...</span> : '' }
                 </div>
               </form>

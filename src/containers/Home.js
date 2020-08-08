@@ -6,6 +6,7 @@ import Categories from '../components/Categories';
 import Cta from '../components/Cta';
 import Histories from '../components/Histories';
 import Contact from '../components/Contact';
+import Info from '../components/Info';
 
 class Home extends Component {
   render () {
@@ -17,6 +18,7 @@ class Home extends Component {
         <Cta />
         <Histories />
         <Contact />
+        <Info />
       </div>
     )
   }

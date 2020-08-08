@@ -11,7 +11,7 @@ const Cta =  (props) => (
         smooth={true}
         offset={-70}
         duration={599}
-        className="btn btn-lg btn-light text-dark"
+        className="btn btn-lg btn-primary text-white"
       >
       contactá a un asesor
       </Scroll>
