@@ -54,7 +54,7 @@ class Contact extends Component {
     return (
       <div className="contact" id="contact">
         <div className="container">
-          <h3>Completá el formulario y un asesor se pondrá en contacto</h3>
+          <h3>Completá el formulario y un asesor se pondrá en contacto contigo</h3>
           <div className="row justify-content-center">
           <div className="col-md-8">
               <p>{this.state.message}</p>

@@ -11,7 +11,7 @@ const Hero =  (props) => (
         <div className="row">
           <div className="col-md-8">
             <h1>Feria del Repuesto CASE IH</h1>
-            <h3>Del 17 de Agosto al 13 de Septiembre. <br/> Importantes Descuentos, financión y envío gratis a todo el pais.</h3>
+            <h3>Del 17 de Agosto al 13 de Septiembre. <br/> Importantes Descuentos, Financión y Envío Gratis a todo el País.</h3>
             <Scroll
               to="contact"
               spy={true}
