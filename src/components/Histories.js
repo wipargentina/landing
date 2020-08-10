@@ -55,9 +55,12 @@ const Histories =  (props) => (
     <div className="histories">
       <h2>Ferias anteriores</h2>
       <div className="row justify-content-center">
-        <div className="col-md-8">
+        <div className="col-md-6">
           <p className="lead">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum sunt nihil laudantium officia et. Numquam perspiciatis, mollitia dolore modi consectetur tenetur autem adipisci tempore architecto odio asperiores, impedit quo atque?
+            Galería de experiencias previas, las ferias 2018 y 
+            2019 en Río Cuarto, Un clásico! <br/>
+            En 2020 extendemos un día, a un intenso mes de beneficios.
+            Ahora desde donde estés.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faPercentage, faHandHoldingUsd, faTruck } from '@fortawesome/free-solid-svg-icons';
 
 const Benefits =  (props) => (
   <div className="benefits">
@@ -9,29 +9,41 @@ const Benefits =  (props) => (
       <div className="row justify-content-center">        
         <div className="col-md-4">
           <div className="benefits-item">
-            <FontAwesomeIcon
-              icon={faHome}
-              size="lg"
-            />
-            Descuentos y Ofertas          
+            <div className="benefits-item-icon">
+              <FontAwesomeIcon
+                icon={faPercentage}
+                size="2x"
+              />
+            </div>
+            <div className="benefits-item-title">
+              Descuentos hasta 50%
+            </div>
           </div>
         </div>
         <div className="col-md-4">
           <div className="benefits-item">
-            <FontAwesomeIcon
-              icon={faHome}
-              size="lg"
-            />
-            Lotes en Liquidación
+            <div className="benefits-item-icon">
+              <FontAwesomeIcon
+                icon={faHandHoldingUsd}
+                size="2x"
+              />
+            </div>
+            <div className="benefits-item-title">
+              Plazo de financiación en <br/> pesos hasta 270 días
+            </div>
           </div>
         </div>
         <div className="col-md-4">
           <div className="benefits-item">
-            <FontAwesomeIcon
-              icon={faTruck}
-              size="lg"
-            />
-            Envío Gratis a todo el País
+            <div className="benefits-item-icon">
+              <FontAwesomeIcon
+                icon={faTruck}
+                size="2x"
+              />
+            </div>
+            <div className="benefits-item-title">
+              Envío gratis a todo el país
+            </div>
           </div>
         </div>
       </div>

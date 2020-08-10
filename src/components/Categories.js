@@ -11,7 +11,7 @@ import iconLubricantes from '../assets/statics/icon-lubricantes.svg';
 const Categories =  (props) => (
   <div className="container">
     <div className="categories">
-      <h2>Aprovechá de todos nuestro beneficios</h2>
+      <h2>Encontrá tu próximo repuesto y beneficios para:</h2>
       <div className="row justify-content-center">
         <div className="col-8 col-md-3">
           <div className="card">
