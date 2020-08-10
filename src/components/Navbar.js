@@ -1,19 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import logoSimonassi from '../assets/statics/logo-simonassi.svg';
 import logoCaseIH from '../assets/statics/logo-case-ih.svg';
 
-const Navbar =  (props) => (
-  <nav className="navbar navbar-expand-lg navbar-dark">
-    <div className="container">
-      <Link className="navbar-brand" to="/">
-        <img src={logoSimonassi} alt="logo simonassi"/>        
-      </Link>
-      <div className="navbar-nav">
-      <img src={logoCaseIH} alt="logo case ih" className="ml-auto" />
+const Navbar =  (props) => {
+  const { isTanks } = props;
+
+  const navbarClass = classNames('navbar navbar-expand-lg navbar-dark', {
+    isTanks
+  });
+  
+  return (
+    <nav className={navbarClass}>
+      <div className="container">
+        <Link className="navbar-brand" to="/">
+          <img src={logoSimonassi} alt="logo simonassi"/>        
+        </Link>
+        <div className="navbar-nav">
+          <img src={logoCaseIH} alt="logo case ih" className="ml-auto" />
+        </div>
       </div>
-    </div>
-  </nav>
-)
+    </nav>
+  )
+}
 
 export default Navbar;

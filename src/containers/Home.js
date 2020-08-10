@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Benefits from '../components/Benefits';
 import Categories from '../components/Categories';
@@ -12,6 +12,7 @@ class Home extends Component {
   render () {
     return (
       <div>
+        <Navbar />
         <Hero />
         <Benefits />
         <Categories />
