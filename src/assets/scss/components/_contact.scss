@@ -17,8 +17,14 @@
       color: white;
     }
   }
-    .custom-control{
-      // background-color: red;
-      margin-bottom: 8px;
-    }
+  .custom-control{
+    // background-color: red;
+    margin-bottom: 8px;
+  }
+
+  .button{
+    //background-color: red;
+    display: flex;
+    align-items: center;
+  }
 }

@@ -10,15 +10,15 @@ const Hero =  (props) => (
       <div className="container">
         <div className="row">
           <div className="col-md-8">
-            <h1>Feria del Repuesto CASE IH</h1>
-            <h3>Del 17 de Agosto al 13 de Septiembre. <br/> Importantes Descuentos, Financión y Envío Gratis a todo el País.</h3>
+            <h1>Feria del Repuesto <br className="d-sm-none" />CASE IH</h1>
+            <h3>Del 17 de agosto al 13 de septiembre. <br/> Importantes descuentos, financión y envío gratis a todo el país.</h3>
             <Scroll
               to="contact"
               spy={true}
               smooth={true}
               offset={-70}
               duration={599}
-              className="btn btn-lg btn-outline-light"
+              className="btn btn-lg btn-light text-dark"
             >
               contactá a un asesor
             </Scroll>

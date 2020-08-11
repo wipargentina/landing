@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import Spinner from '../components/Spinner';
 import axios from 'axios';
 
 class Contact extends Component {
@@ -41,8 +42,6 @@ class Contact extends Component {
       })
   }
 
-  
-
   render () {
 
     if(this.state.send) {
@@ -62,42 +61,80 @@ class Contact extends Component {
                 <div className="row mb-4">
                   <div className="col-md-6">
                     <div className="form-group">
-                      <label>Nombre</label>
-                      <input type="text" name="fname" className="form-control form-control-lg" onChange={this.handleChange}/>
+                      <label>Nombre*</label>
+                      <input 
+                        type="text" 
+                        name="fname" 
+                        className="form-control form-control-lg" 
+                        onChange={this.handleChange}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
-                      <label>Apellido</label>
-                      <input type="text" name="lname" className="form-control form-control-lg" onChange={this.handleChange}/>
+                      <label>Apellido*</label>
+                      <input 
+                        type="text" 
+                        name="lname" 
+                        className="form-control form-control-lg" 
+                        onChange={this.handleChange}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
-                      <label>Email</label>
-                      <input type="text" name="email" className="form-control form-control-lg" onChange={this.handleChange}/>
+                      <label>Email*</label>
+                      <input 
+                        type="text" 
+                        name="email" 
+                        className="form-control form-control-lg" 
+                        onChange={this.handleChange}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
-                      <label>Teléfono</label>
-                      <input type="text" name="phone" className="form-control form-control-lg" onChange={this.handleChange}/>
+                      <label>Teléfono*</label>
+                      <input 
+                        type="text" 
+                        name="phone" 
+                        className="form-control form-control-lg" 
+                        onChange={this.handleChange}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Provincia</label>
-                      <input type="text" name="state" className="form-control form-control-lg" onChange={this.handleChange}/>
+                      <input 
+                        type="text" 
+                        name="state" 
+                        className="form-control form-control-lg" 
+                        onChange={this.handleChange}
+                      />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
                       <label>Localidad</label>
-                      <input type="text" name="city" className="form-control form-control-lg" onChange={this.handleChange}/>
-                    </div>
+                      <input 
+                        type="text" 
+                        name="city" 
+                        className="form-control form-control-lg" 
+                        onChange={this.handleChange}
+                      />
+                    </div>                  
                   </div>
                   <div className="col-md-6 mb-2">
                     <label>¿Cuál es tu tema de interés?</label>
+                    <div className="custom-control custom-checkbox">
+                      <input type="checkbox" className="custom-control-input" id="dataCheck0" name="Repuestos" onChange={this.handleChange}/>
+                      <label className="custom-control-label" htmlFor="dataCheck0">Repuestos</label>
+                    </div>
                     <div className="custom-control custom-checkbox">
                       <input type="checkbox" className="custom-control-input" id="dataCheck1" name="tractores" onChange={this.handleChange}/>
                       <label className="custom-control-label" htmlFor="dataCheck1">Tractores</label>
@@ -138,10 +175,18 @@ class Contact extends Component {
                       <label className="custom-control-label" htmlFor="customRadio3">Otro</label>
                     </div>
                   </div>
+                  <div className="col">
+                  <small>* campos obligatorios</small>
+                  </div>
                 </div>
-                <div className="">
-                  <input type="submit" value="ENVIAR" className="btn btn-lg btn-primary text-white" />
-                  { isSending ? <span className="ml-2">enviando...</span> : '' }
+                <div className="button">
+                  <input 
+                    type="submit" 
+                    value="ENVIAR" 
+                    className="btn btn-lg btn-primary text-white"
+                    disabled={isSending}
+                  />
+                  { isSending ? <Spinner /> : '' }
                 </div>
               </form>
             </div>
