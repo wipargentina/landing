@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
 
@@ -13,8 +13,9 @@ class Contact extends Component {
       phone: '',
       state: '',
       city: '',
+      tipo: '',
       isSending: false,
-      send: false
+      send: false,
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,19 +23,22 @@ class Contact extends Component {
   }
 
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({
+      [e.target.name]: e.target.value,
+    })
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    //console.log(this.state);
+    console.log(this.state);
     this.setState({ isSending: true })
     
-    axios.post('https://simonassi.wipargentina.com/backend/test.php', this.state)
+    // axios.post('https://simonassi.wipargentina.com/backend/test.php', this.state)
+    axios.post('http://localhost:8000/test.php', this.state)
       .then(response => {
-        //console.log(response);
+        console.log(response);
         if(response.status === 200) {
-          this.setState({ isSending: false, send: true })
+          this.setState({ isSending: false, send: true, state: '' })
         }
       })
       .catch(error => {
@@ -44,9 +48,9 @@ class Contact extends Component {
 
   render () {
 
-    if(this.state.send) {
-      return <Redirect to="/gracias" />
-    }
+    // if(this.state.send) {
+    //   return <Redirect to="/gracias" />
+    // }
 
     const isSending = this.state.isSending;
 
@@ -67,7 +71,7 @@ class Contact extends Component {
                         name="fname" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        required
+                        // required
                       />
                     </div>
                   </div>
@@ -79,7 +83,7 @@ class Contact extends Component {
                         name="lname" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        required
+                        // required
                       />
                     </div>
                   </div>
@@ -91,7 +95,7 @@ class Contact extends Component {
                         name="email" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        required
+                        // required
                       />
                     </div>
                   </div>
@@ -103,7 +107,7 @@ class Contact extends Component {
                         name="phone" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        required
+                        // required
                       />
                     </div>
                   </div>
@@ -132,48 +136,163 @@ class Contact extends Component {
                   <div className="col-md-6 mb-2">
                     <label>¿Cuál es tu tema de interés?</label>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck0" name="Repuestos" onChange={this.handleChange}/>
+                      <input 
+                        type="checkbox" 
+                        className="custom-control-input" 
+                        id="dataCheck0" 
+                        name="repuestos" 
+                        checked={this.state.check} 
+                        onChange={(e) => {
+                          this.handleChange({
+                            target: {
+                              name: e.target.name,
+                              value: e.target.checked,
+                            },
+                          });
+                        }}
+                      />
                       <label className="custom-control-label" htmlFor="dataCheck0">Repuestos</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck1" name="tractores" onChange={this.handleChange}/>
+                      <input 
+                        type="checkbox" 
+                        className="custom-control-input" 
+                        id="dataCheck1" 
+                        name="tractores" 
+                        checked={this.state.check} 
+                        onChange={(e) => {
+                          this.handleChange({
+                            target: {
+                              name: e.target.name,
+                              value: e.target.checked,
+                            },
+                          });
+                        }}
+                      />
                       <label className="custom-control-label" htmlFor="dataCheck1">Tractores</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck2" name="pulverizadores" onChange={this.handleChange}/>
+                      <input 
+                        type="checkbox" 
+                        className="custom-control-input" 
+                        id="dataCheck2" 
+                        name="pulverizadores" 
+                         onChange={(e) => {
+                          this.handleChange({
+                            target: {
+                              name: e.target.name,
+                              value: e.target.checked,
+                            },
+                          });
+                        }}
+                      />
                       <label className="custom-control-label" htmlFor="dataCheck2">Pulverizadores</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck3" name="cosechadoras" onChange={this.handleChange}/>
+                      <input 
+                        type="checkbox" 
+                        className="custom-control-input" 
+                        id="dataCheck3" 
+                        name="cosechadoras" 
+                         onChange={(e) => {
+                          this.handleChange({
+                            target: {
+                              name: e.target.name,
+                              value: e.target.checked,
+                            },
+                          });
+                        }}
+                      />
                       <label className="custom-control-label" htmlFor="dataCheck3">Cosechadoras</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck4" name="servicio-tecnico" onChange={this.handleChange}/>
+                      <input 
+                        type="checkbox" 
+                        className="custom-control-input" 
+                        id="dataCheck4" 
+                        name="servicio-tecnico" 
+                         onChange={(e) => {
+                          this.handleChange({
+                            target: {
+                              name: e.target.name,
+                              value: e.target.checked,
+                            },
+                          });
+                        }}
+                      />
                       <label className="custom-control-label" htmlFor="dataCheck4">Servicio Técnico</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck5" name="lubricante-adhitivos" onChange={this.handleChange}/>
+                      <input 
+                        type="checkbox" 
+                        className="custom-control-input" 
+                        id="dataCheck5" 
+                        name="lubricantes-adhitivos" 
+                         onChange={(e) => {
+                          this.handleChange({
+                            target: {
+                              name: e.target.name,
+                              value: e.target.checked,
+                            },
+                          });
+                        }}
+                      />
                       <label className="custom-control-label" htmlFor="dataCheck5">Lubricantes y Adhitivos</label>
                     </div>
                     <div className="custom-control custom-checkbox">
-                      <input type="checkbox" className="custom-control-input" id="dataCheck6" name="agricultura-precision" onChange={this.handleChange}/>
+                      <input 
+                        type="checkbox" 
+                        className="custom-control-input" 
+                        id="dataCheck6" 
+                        name="agricultura-precision" 
+                         onChange={(e) => {
+                          this.handleChange({
+                            target: {
+                              name: e.target.name,
+                              value: e.target.checked,
+                            },
+                          });
+                        }}
+                      />
                       <label className="custom-control-label" htmlFor="dataCheck6">Agricultra de Precisión</label>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <label>¿Que tipo de productor eres?</label>
                     <div className="custom-control custom-radio">
-                      <input type="radio" id="customRadio1" name="tipo" value="productor" className="custom-control-input" onChange={this.handleChange} />
+                      <input 
+                        type="radio" 
+                        id="customRadio1" 
+                        name="tipo" 
+                        value="productor" 
+                        className="custom-control-input"
+                        onChange={this.handleChange}
+                        checked={true}
+                      />
                       <label className="custom-control-label" htmlFor="customRadio1">Productor</label>
                     </div>
                     <div className="custom-control custom-radio">
-                      <input type="radio" id="customRadio2" name="tipo" value="contratista" className="custom-control-input" onChange={this.handleChange} />
+                      <input 
+                        type="radio" 
+                        id="customRadio2" 
+                        name="tipo" 
+                        value="contratista" 
+                        className="custom-control-input" 
+                        onChange={this.handleChange}
+                      />
                       <label className="custom-control-label" htmlFor="customRadio2">Contratista</label>
                     </div>
                     <div className="custom-control custom-radio">
-                      <input type="radio" id="customRadio3" name="tipo" value="otro" className="custom-control-input" onChange={this.handleChange} />
+                      <input 
+                        type="radio" 
+                        id="customRadio3" 
+                        name="tipo" 
+                        value="otro" 
+                        className="custom-control-input" 
+                        onChange={this.handleChange}
+                      />
                       <label className="custom-control-label" htmlFor="customRadio3">Otro</label>
-                    </div>
+                    </div>                   
                   </div>
                   <div className="col">
                   <small>* campos obligatorios</small>
