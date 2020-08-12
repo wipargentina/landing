@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
 
@@ -11,14 +11,15 @@ class Contact extends Component {
       lname: '',
       email: '',
       phone: '',
-      state: '',
+      province: '',
       city: '',
-      tipo: '',
+      tipo: 'productor',
       isSending: false,
       send: false,
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -28,15 +29,21 @@ class Contact extends Component {
     })
   }
 
+  handleOptionChange(e) {
+    this.setState({
+      tipo: e.target.value
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
+    //console.log(this.state);
     this.setState({ isSending: true })
     
-    // axios.post('https://simonassi.wipargentina.com/backend/test.php', this.state)
-    axios.post('http://localhost:8000/test.php', this.state)
+    // axios.post('https://simonassi.wipargentina.com/backend/mail.php', this.state)
+    axios.post('http://localhost:8000/mail.php', this.state)
       .then(response => {
-        console.log(response);
+        //console.log(response);
         if(response.status === 200) {
           this.setState({ isSending: false, send: true, state: '' })
         }
@@ -48,9 +55,9 @@ class Contact extends Component {
 
   render () {
 
-    // if(this.state.send) {
-    //   return <Redirect to="/gracias" />
-    // }
+    if(this.state.send) {
+      return <Redirect to="/gracias" />
+    }
 
     const isSending = this.state.isSending;
 
@@ -71,7 +78,7 @@ class Contact extends Component {
                         name="fname" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        // required
+                        required
                       />
                     </div>
                   </div>
@@ -83,7 +90,7 @@ class Contact extends Component {
                         name="lname" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        // required
+                        required
                       />
                     </div>
                   </div>
@@ -91,11 +98,11 @@ class Contact extends Component {
                     <div className="form-group">
                       <label>Email*</label>
                       <input 
-                        type="text" 
+                        type="email" 
                         name="email" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        // required
+                        required
                       />
                     </div>
                   </div>
@@ -107,31 +114,33 @@ class Contact extends Component {
                         name="phone" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
-                        // required
+                        required
                       />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
-                      <label>Provincia</label>
+                      <label>Provincia*</label>
                       <input 
                         type="text" 
-                        name="state" 
+                        name="province" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
+                        required
                       />
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-group">
-                      <label>Localidad</label>
+                      <label>Localidad*</label>
                       <input 
                         type="text" 
                         name="city" 
                         className="form-control form-control-lg" 
                         onChange={this.handleChange}
+                        required
                       />
-                    </div>                  
+                    </div>
                   </div>
                   <div className="col-md-6 mb-2">
                     <label>¿Cuál es tu tema de interés?</label>
@@ -266,8 +275,8 @@ class Contact extends Component {
                         name="tipo" 
                         value="productor" 
                         className="custom-control-input"
-                        onChange={this.handleChange}
-                        checked={true}
+                        checked={this.state.tipo === 'productor'} 
+                        onChange={this.handleOptionChange}
                       />
                       <label className="custom-control-label" htmlFor="customRadio1">Productor</label>
                     </div>
@@ -277,8 +286,10 @@ class Contact extends Component {
                         id="customRadio2" 
                         name="tipo" 
                         value="contratista" 
-                        className="custom-control-input" 
-                        onChange={this.handleChange}
+                        className="custom-control-input"
+                        checked={this.state.tipo === 'contratista'} 
+                        onChange={this.handleOptionChange}
+                        
                       />
                       <label className="custom-control-label" htmlFor="customRadio2">Contratista</label>
                     </div>
@@ -288,8 +299,9 @@ class Contact extends Component {
                         id="customRadio3" 
                         name="tipo" 
                         value="otro" 
-                        className="custom-control-input" 
-                        onChange={this.handleChange}
+                        className="custom-control-input"
+                        checked={this.state.tipo === 'otro'} 
+                        onChange={this.handleOptionChange}
                       />
                       <label className="custom-control-label" htmlFor="customRadio3">Otro</label>
                     </div>                   

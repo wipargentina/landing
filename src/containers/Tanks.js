@@ -15,7 +15,7 @@ const Tanks =  (props) => (
 
           <p>Te invitamos a que descargues la guía de beneficios</p>
 
-          <a href="https://drive.google.com/file/d/1ouYpUnQTFfZMWeDl_acJUc08D3tSWsWW/view?usp=sharing" alt="programacion" className="btn btn-primary" target="_blank" rel="noopener noreferrer">DESCARGAR GUÍA DE BENEFICIOS</a>
+          <a href="https://drive.google.com/file/d/1ouYpUnQTFfZMWeDl_acJUc08D3tSWsWW/view?usp=sharing" alt="programacion" className="btn btn-primary btn-cta" target="_blank" rel="noopener noreferrer">DESCARGAR GUÍA DE BENEFICIOS</a>
           
           <p>
             Visitanos en nuestra web <br/>
@@ -46,15 +46,26 @@ const Tanks =  (props) => (
             </a>
           </div>
           
-          <div className="mt-3">
-            <a href="https://wa.me/5493585083890" className="btn btn-success" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon
-                icon={faWhatsapp}
-                size="lg"
-              />
-              {' '}
-              Escribinos
-            </a>
+          <div className="whatsapp">
+            <p>Escribinos por Whatsapp</p>
+            <div>
+              <a href="https://wa.me/5493585083890" className="btn btn-success" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon
+                  icon={faWhatsapp}
+                  size="lg"
+                />
+                {' '}
+                Río Cuarto
+              </a>
+              <a href="https://wa.me/5492302690874" className="btn btn-success" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon
+                  icon={faWhatsapp}
+                  size="lg"
+                />
+                {' '}
+                Huinca Renancó
+              </a>
+            </div>
           </div>
 
         </div>

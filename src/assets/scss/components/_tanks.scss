@@ -16,13 +16,22 @@
     font-size: 1.2em;
   }
 
-  .btn{
+  .btn-cta{
     margin: 30px 0;
   }
 
   .social{
+    margin-bottom: 30px;
     a{
       padding: 0 8px;
+    }
+  }
+
+  .whatsapp{
+    .btn{
+      &:first-child{
+        margin-right: 8px;
+      }
     }
   }
 
