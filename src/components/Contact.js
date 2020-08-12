@@ -40,8 +40,8 @@ class Contact extends Component {
     //console.log(this.state);
     this.setState({ isSending: true })
     
-    // axios.post('https://simonassi.wipargentina.com/backend/mail.php', this.state)
-    axios.post('http://localhost:8000/mail.php', this.state)
+    axios.post('https://simonassi.wipargentina.com/backend/mail.php', this.state)
+    //axios.post('http://localhost:8000/mail.php', this.state)
       .then(response => {
         //console.log(response);
         if(response.status === 200) {
