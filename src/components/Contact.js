@@ -40,12 +40,13 @@ class Contact extends Component {
     //console.log(this.state);
     this.setState({ isSending: true })
     
-    axios.post('https://simonassi.wipargentina.com/backend/mail.php', this.state)
+    axios.post('https://simonassi.wipargentina.com/backend/test.php', this.state)
     //axios.post('http://localhost:8000/mail.php', this.state)
       .then(response => {
         //console.log(response);
         if(response.status === 200) {
           this.setState({ isSending: false, send: true, state: '' })
+          window.location.assign(process.env.PUBLIC_URL + '/gracias');
         }
       })
       .catch(error => {
