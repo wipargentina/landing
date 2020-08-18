@@ -7,6 +7,7 @@ import Cta from '../components/Cta';
 import Histories from '../components/Histories';
 import Contact from '../components/Contact';
 import Info from '../components/Info';
+import Whatsapp from '../components/Whatsapp';
 
 class Home extends Component {
   render () {
@@ -15,6 +16,7 @@ class Home extends Component {
         <Navbar />
         <Hero />
         <Benefits />
+        <Whatsapp />
         <Categories />
         <Cta />
         <Histories />

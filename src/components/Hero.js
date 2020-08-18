@@ -13,7 +13,7 @@ const Hero =  (props) => (
             <h1>Feria del Repuesto <br className="d-sm-none" />CASE IH</h1>
             <h3>Del 17 de agosto al 13 de septiembre. <br/> Importantes descuentos, financión y envío gratis a todo el país.</h3>
             <Scroll
-              to="contact"
+              to="whatsapp"
               spy={true}
               smooth={true}
               offset={-70}

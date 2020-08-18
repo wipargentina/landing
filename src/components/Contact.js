@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import Spinner from '../components/Spinner';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 
 class Contact extends Component {
@@ -67,31 +65,7 @@ class Contact extends Component {
     return (
       <div className="contact" id="contact">
         <div className="container">
-
-          <h3>Escribinos por whatsapp según tu zona</h3>
-
-          <div className="whatsapp">
-            <div>
-              <a href="https://wa.me/5493585083890" className="btn btn-lg btn-success" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon
-                  icon={faWhatsapp}
-                  size="lg"
-                />
-                {' '}
-                Río Cuarto
-              </a>
-              <a href="https://wa.me/5492302690874" className="btn btn-lg btn-success" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon
-                  icon={faWhatsapp}
-                  size="lg"
-                />
-                {' '}
-                Huinca Renancó
-              </a>
-            </div>
-          </div>
-
-          <h4>ó completá el formulario y un asesor se pondrá en contacto contigo</h4>
+          <h3>Completá el formulario y un asesor se pondrá en contacto contigo</h3>
           <div className="row justify-content-center">
           <div className="col-md-8">
               <p>{this.state.message}</p>

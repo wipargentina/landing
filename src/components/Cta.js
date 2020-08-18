@@ -13,7 +13,7 @@ const Cta =  (props) => (
         duration={599}
         className="btn btn-lg btn-primary text-white"
       >
-      contactá a un asesor
+      Dejanos tus datos
       </Scroll>
     </div>
   </div>
