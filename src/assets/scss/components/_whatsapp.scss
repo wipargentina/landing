@@ -1,0 +1,26 @@
+.whatsapp{
+  background-color: $secondary;
+  padding: 60px 0;
+  text-align: center;
+  color: white;
+  h4{
+    margin-bottom: 30px;
+  }
+  .btn{
+    &:first-child{
+      margin-right: 16px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .whatsapp{
+    .btn{
+      display: block;
+      &:first-child{
+        margin-right: 0px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
